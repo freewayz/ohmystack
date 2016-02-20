@@ -1,0 +1,303 @@
+2016.01.20 15:01:57.956	rpc	[INFO]:	Adding /ohMyStackAPI/1.0 to set of valid APIs.
+2016.01.20 15:01:58.043	rpc	[INFO]:	Enabling Discovery API Service for api: /ohMyStackAPI/1.0
+2016.01.20 15:01:58.130	rpc	[INFO]:	Adding /discovery/v1 to set of valid APIs.
+2016.03.20 15:03:09.343	rpc	[WARNING]:	
+Response
+  Status Code: 404
+  Headers:
+    access-control-allow-credentials: true
+    access-control-allow-origin: *
+    cache-control: no-cache, no-store, must-revalidate
+    content-type: application/json; charset=utf-8
+    expires: 0
+    pragma: no-cache
+  Exception:
+    RPC Error with status: 404 and message: No API with key: /ohMyStackApi/1.0.
+
+2016.04.20 15:04:12.601	rpc	[WARNING]:	
+Response
+  Status Code: 404
+  Headers:
+    access-control-allow-credentials: true
+    access-control-allow-origin: *
+    cache-control: no-cache, no-store, must-revalidate
+    content-type: application/json; charset=utf-8
+    expires: 0
+    pragma: no-cache
+  Exception:
+    RPC Error with status: 404 and message: No API with key: /ohMyStackApi/1.0.
+
+2016.04.20 15:04:19.711	rpc	[INFO]:	Invoking API: /ohMyStackAPI/1.0 with HTTP method: GET on url: http://uaks02da7e82.abole.koding.io:8080/api/ohMyStackAPI/1.0/test-koding.
+2016.04.20 15:04:19.741	rpc	[FINER]:	
+Request for API /ohMyStackAPI/1.0:
+  Method: GET
+  Path: /api/ohMyStackAPI/1.0/test-koding
+    accept: [text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8]
+    accept-encoding: [gzip, deflate, sdch]
+    accept-language: [en-US,en;q=0.8]
+    connection: [keep-alive]
+    host: [uaks02da7e82.abole.koding.io:8080]
+    upgrade-insecure-requests: [1]
+    user-agent: [Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36]
+
+2016.04.20 15:04:19.744	rpc	[FINE]:	
+Invoking method: testKodingVm with:
+  Positional Parameters:
+  Named Parameters:
+
+2016.04.20 15:04:19.747	rpc	[FINE]:	Method returned result: Instance of 'KodingResponse'
+2016.04.20 15:04:19.750	rpc	[FINEST]:	Successfully encoded result as json: {message: OhMyStackAPI is working on koding VM}
+2016.04.20 15:04:19.754	rpc	[FINEST]:	Successfully encoded json as bytes:
+  [123, 10, 32, 34, 109, 101, 115, 115, 97, 103, 101, 34, 58, 32, 34, 79, 104, 77, 121, 83, 116, 97, 99, 107, 65, 80, 73, 32, 105, 115, 32, 119, 111, 114, 107, 105, 110, 103, 32, 111, 110, 32, 107, 111, 100, 105, 110, 103, 32, 86, 77, 34, 10, 125]
+2016.04.20 15:04:19.758	rpc	[FINER]:	
+Response
+  Status Code: 200
+  Headers:
+    access-control-allow-credentials: true
+    access-control-allow-origin: *
+    cache-control: no-cache, no-store, must-revalidate
+    content-type: application/json; charset=utf-8
+    expires: 0
+    pragma: no-cache
+  Body:
+    {message: OhMyStackAPI is working on koding VM}
+
+2016.06.20 15:06:20.901	rpc	[INFO]:	Invoking API: /ohMyStackAPI/1.0 with HTTP method: GET on url: http://uaks02da7e82.abole.koding.io:8080/api/ohMyStackAPI/1.0/test-koding.
+2016.06.20 15:06:20.906	rpc	[FINER]:	
+Request for API /ohMyStackAPI/1.0:
+  Method: GET
+  Path: /api/ohMyStackAPI/1.0/test-koding
+    accept: [*/*]
+    accept-encoding: [deflate, gzip]
+    connection: [close]
+    host: [uaks02da7e82.abole.koding.io:8080]
+    range: [bytes=0-524287]
+    user-agent: [facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)]
+
+2016.06.20 15:06:20.910	rpc	[FINE]:	
+Invoking method: testKodingVm with:
+  Positional Parameters:
+  Named Parameters:
+
+2016.06.20 15:06:20.912	rpc	[FINE]:	Method returned result: Instance of 'KodingResponse'
+2016.06.20 15:06:20.913	rpc	[FINEST]:	Successfully encoded result as json: {message: OhMyStackAPI is working on koding VM}
+2016.06.20 15:06:20.915	rpc	[FINEST]:	Successfully encoded json as bytes:
+  [123, 10, 32, 34, 109, 101, 115, 115, 97, 103, 101, 34, 58, 32, 34, 79, 104, 77, 121, 83, 116, 97, 99, 107, 65, 80, 73, 32, 105, 115, 32, 119, 111, 114, 107, 105, 110, 103, 32, 111, 110, 32, 107, 111, 100, 105, 110, 103, 32, 86, 77, 34, 10, 125]
+2016.06.20 15:06:20.916	rpc	[FINER]:	
+Response
+  Status Code: 200
+  Headers:
+    access-control-allow-credentials: true
+    access-control-allow-origin: *
+    cache-control: no-cache, no-store, must-revalidate
+    content-type: application/json; charset=utf-8
+    expires: 0
+    pragma: no-cache
+  Body:
+    {message: OhMyStackAPI is working on koding VM}
+
+2016.06.20 15:06:23.360	rpc	[INFO]:	Invoking API: /ohMyStackAPI/1.0 with HTTP method: GET on url: http://uaks02da7e82.abole.koding.io:8080/api/ohMyStackAPI/1.0/test-koding.
+2016.06.20 15:06:23.362	rpc	[FINER]:	
+Request for API /ohMyStackAPI/1.0:
+  Method: GET
+  Path: /api/ohMyStackAPI/1.0/test-koding
+    accept: [*/*]
+    accept-encoding: [deflate, gzip]
+    connection: [close]
+    host: [uaks02da7e82.abole.koding.io:8080]
+    range: [bytes=0-131071]
+    user-agent: [facebookexternalhit/1.1]
+
+2016.06.20 15:06:23.364	rpc	[FINE]:	
+Invoking method: testKodingVm with:
+  Positional Parameters:
+  Named Parameters:
+
+2016.06.20 15:06:23.366	rpc	[FINE]:	Method returned result: Instance of 'KodingResponse'
+2016.06.20 15:06:23.367	rpc	[FINEST]:	Successfully encoded result as json: {message: OhMyStackAPI is working on koding VM}
+2016.06.20 15:06:23.368	rpc	[FINEST]:	Successfully encoded json as bytes:
+  [123, 10, 32, 34, 109, 101, 115, 115, 97, 103, 101, 34, 58, 32, 34, 79, 104, 77, 121, 83, 116, 97, 99, 107, 65, 80, 73, 32, 105, 115, 32, 119, 111, 114, 107, 105, 110, 103, 32, 111, 110, 32, 107, 111, 100, 105, 110, 103, 32, 86, 77, 34, 10, 125]
+2016.06.20 15:06:23.370	rpc	[FINER]:	
+Response
+  Status Code: 200
+  Headers:
+    access-control-allow-credentials: true
+    access-control-allow-origin: *
+    cache-control: no-cache, no-store, must-revalidate
+    content-type: application/json; charset=utf-8
+    expires: 0
+    pragma: no-cache
+  Body:
+    {message: OhMyStackAPI is working on koding VM}
+
+2016.06.20 15:06:23.740	rpc	[INFO]:	Invoking API: /ohMyStackAPI/1.0 with HTTP method: GET on url: http://uaks02da7e82.abole.koding.io:8080/api/ohMyStackAPI/1.0/test-koding.
+2016.06.20 15:06:23.742	rpc	[FINER]:	
+Request for API /ohMyStackAPI/1.0:
+  Method: GET
+  Path: /api/ohMyStackAPI/1.0/test-koding
+    accept: [*/*]
+    accept-encoding: [deflate, gzip]
+    connection: [close]
+    host: [uaks02da7e82.abole.koding.io:8080]
+    range: [bytes=0-131071]
+    user-agent: [facebookexternalhit/1.1]
+
+2016.06.20 15:06:23.744	rpc	[FINE]:	
+Invoking method: testKodingVm with:
+  Positional Parameters:
+  Named Parameters:
+
+2016.06.20 15:06:23.746	rpc	[FINE]:	Method returned result: Instance of 'KodingResponse'
+2016.06.20 15:06:23.747	rpc	[FINEST]:	Successfully encoded result as json: {message: OhMyStackAPI is working on koding VM}
+2016.06.20 15:06:23.748	rpc	[FINEST]:	Successfully encoded json as bytes:
+  [123, 10, 32, 34, 109, 101, 115, 115, 97, 103, 101, 34, 58, 32, 34, 79, 104, 77, 121, 83, 116, 97, 99, 107, 65, 80, 73, 32, 105, 115, 32, 119, 111, 114, 107, 105, 110, 103, 32, 111, 110, 32, 107, 111, 100, 105, 110, 103, 32, 86, 77, 34, 10, 125]
+2016.06.20 15:06:23.750	rpc	[FINER]:	
+Response
+  Status Code: 200
+  Headers:
+    access-control-allow-credentials: true
+    access-control-allow-origin: *
+    cache-control: no-cache, no-store, must-revalidate
+    content-type: application/json; charset=utf-8
+    expires: 0
+    pragma: no-cache
+  Body:
+    {message: OhMyStackAPI is working on koding VM}
+
+2016.09.20 15:09:40.979	rpc	[INFO]:	Invoking API: /ohMyStackAPI/1.0 with HTTP method: GET on url: http://169.45.235.91:8080/api/ohMyStackAPI/1.0/test-koding.
+2016.09.20 15:09:40.981	rpc	[FINER]:	
+Request for API /ohMyStackAPI/1.0:
+  Method: GET
+  Path: /api/ohMyStackAPI/1.0/test-koding
+    accept: [text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8]
+    accept-encoding: [gzip, deflate, sdch]
+    accept-language: [en-US,en;q=0.8]
+    connection: [keep-alive]
+    host: [169.45.235.91:8080]
+    upgrade-insecure-requests: [1]
+    user-agent: [Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36]
+
+2016.09.20 15:09:40.984	rpc	[FINE]:	
+Invoking method: testKodingVm with:
+  Positional Parameters:
+  Named Parameters:
+
+2016.09.20 15:09:40.985	rpc	[FINE]:	Method returned result: Instance of 'KodingResponse'
+2016.09.20 15:09:40.987	rpc	[FINEST]:	Successfully encoded result as json: {message: OhMyStackAPI is working on koding VM}
+2016.09.20 15:09:40.988	rpc	[FINEST]:	Successfully encoded json as bytes:
+  [123, 10, 32, 34, 109, 101, 115, 115, 97, 103, 101, 34, 58, 32, 34, 79, 104, 77, 121, 83, 116, 97, 99, 107, 65, 80, 73, 32, 105, 115, 32, 119, 111, 114, 107, 105, 110, 103, 32, 111, 110, 32, 107, 111, 100, 105, 110, 103, 32, 86, 77, 34, 10, 125]
+2016.09.20 15:09:40.990	rpc	[FINER]:	
+Response
+  Status Code: 200
+  Headers:
+    access-control-allow-credentials: true
+    access-control-allow-origin: *
+    cache-control: no-cache, no-store, must-revalidate
+    content-type: application/json; charset=utf-8
+    expires: 0
+    pragma: no-cache
+  Body:
+    {message: OhMyStackAPI is working on koding VM}
+
+2016.10.20 15:10:18.526	rpc	[INFO]:	Invoking API: /ohMyStackAPI/1.0 with HTTP method: GET on url: http://169.45.235.91:8080/api/ohMyStackAPI/1.0/test-koding.
+2016.10.20 15:10:18.528	rpc	[FINER]:	
+Request for API /ohMyStackAPI/1.0:
+  Method: GET
+  Path: /api/ohMyStackAPI/1.0/test-koding
+    accept: [*/*]
+    accept-encoding: [deflate, gzip]
+    connection: [close]
+    host: [169.45.235.91:8080]
+    range: [bytes=0-524287]
+    user-agent: [facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)]
+
+2016.10.20 15:10:18.531	rpc	[FINE]:	
+Invoking method: testKodingVm with:
+  Positional Parameters:
+  Named Parameters:
+
+2016.10.20 15:10:18.532	rpc	[FINE]:	Method returned result: Instance of 'KodingResponse'
+2016.10.20 15:10:18.534	rpc	[FINEST]:	Successfully encoded result as json: {message: OhMyStackAPI is working on koding VM}
+2016.10.20 15:10:18.535	rpc	[FINEST]:	Successfully encoded json as bytes:
+  [123, 10, 32, 34, 109, 101, 115, 115, 97, 103, 101, 34, 58, 32, 34, 79, 104, 77, 121, 83, 116, 97, 99, 107, 65, 80, 73, 32, 105, 115, 32, 119, 111, 114, 107, 105, 110, 103, 32, 111, 110, 32, 107, 111, 100, 105, 110, 103, 32, 86, 77, 34, 10, 125]
+2016.10.20 15:10:18.537	rpc	[FINER]:	
+Response
+  Status Code: 200
+  Headers:
+    access-control-allow-credentials: true
+    access-control-allow-origin: *
+    cache-control: no-cache, no-store, must-revalidate
+    content-type: application/json; charset=utf-8
+    expires: 0
+    pragma: no-cache
+  Body:
+    {message: OhMyStackAPI is working on koding VM}
+
+2016.10.20 15:10:21.120	rpc	[INFO]:	Invoking API: /ohMyStackAPI/1.0 with HTTP method: GET on url: http://169.45.235.91:8080/api/ohMyStackAPI/1.0/test-koding.
+2016.10.20 15:10:21.123	rpc	[FINER]:	
+Request for API /ohMyStackAPI/1.0:
+  Method: GET
+  Path: /api/ohMyStackAPI/1.0/test-koding
+    accept: [*/*]
+    accept-encoding: [deflate, gzip]
+    connection: [close]
+    host: [169.45.235.91:8080]
+    range: [bytes=0-131071]
+    user-agent: [facebookexternalhit/1.1]
+
+2016.10.20 15:10:21.125	rpc	[FINE]:	
+Invoking method: testKodingVm with:
+  Positional Parameters:
+  Named Parameters:
+
+2016.10.20 15:10:21.126	rpc	[FINE]:	Method returned result: Instance of 'KodingResponse'
+2016.10.20 15:10:21.128	rpc	[FINEST]:	Successfully encoded result as json: {message: OhMyStackAPI is working on koding VM}
+2016.10.20 15:10:21.129	rpc	[FINEST]:	Successfully encoded json as bytes:
+  [123, 10, 32, 34, 109, 101, 115, 115, 97, 103, 101, 34, 58, 32, 34, 79, 104, 77, 121, 83, 116, 97, 99, 107, 65, 80, 73, 32, 105, 115, 32, 119, 111, 114, 107, 105, 110, 103, 32, 111, 110, 32, 107, 111, 100, 105, 110, 103, 32, 86, 77, 34, 10, 125]
+2016.10.20 15:10:21.131	rpc	[FINER]:	
+Response
+  Status Code: 200
+  Headers:
+    access-control-allow-credentials: true
+    access-control-allow-origin: *
+    cache-control: no-cache, no-store, must-revalidate
+    content-type: application/json; charset=utf-8
+    expires: 0
+    pragma: no-cache
+  Body:
+    {message: OhMyStackAPI is working on koding VM}
+
+2016.10.20 15:10:21.191	rpc	[INFO]:	Invoking API: /ohMyStackAPI/1.0 with HTTP method: GET on url: http://169.45.235.91:8080/api/ohMyStackAPI/1.0/test-koding.
+2016.10.20 15:10:21.193	rpc	[FINER]:	
+Request for API /ohMyStackAPI/1.0:
+  Method: GET
+  Path: /api/ohMyStackAPI/1.0/test-koding
+    accept: [*/*]
+    accept-encoding: [deflate, gzip]
+    connection: [close]
+    host: [169.45.235.91:8080]
+    range: [bytes=0-131071]
+    user-agent: [facebookexternalhit/1.1]
+
+2016.10.20 15:10:21.195	rpc	[FINE]:	
+Invoking method: testKodingVm with:
+  Positional Parameters:
+  Named Parameters:
+
+2016.10.20 15:10:21.197	rpc	[FINE]:	Method returned result: Instance of 'KodingResponse'
+2016.10.20 15:10:21.199	rpc	[FINEST]:	Successfully encoded result as json: {message: OhMyStackAPI is working on koding VM}
+2016.10.20 15:10:21.200	rpc	[FINEST]:	Successfully encoded json as bytes:
+  [123, 10, 32, 34, 109, 101, 115, 115, 97, 103, 101, 34, 58, 32, 34, 79, 104, 77, 121, 83, 116, 97, 99, 107, 65, 80, 73, 32, 105, 115, 32, 119, 111, 114, 107, 105, 110, 103, 32, 111, 110, 32, 107, 111, 100, 105, 110, 103, 32, 86, 77, 34, 10, 125]
+2016.10.20 15:10:21.202	rpc	[FINER]:	
+Response
+  Status Code: 200
+  Headers:
+    access-control-allow-credentials: true
+    access-control-allow-origin: *
+    cache-control: no-cache, no-store, must-revalidate
+    content-type: application/json; charset=utf-8
+    expires: 0
+    pragma: no-cache
+  Body:
+    {message: OhMyStackAPI is working on koding VM}
+
