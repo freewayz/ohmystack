@@ -16,7 +16,6 @@ var stackApiKey = "4ylwye8J)J7fRHZCsDvD3Q((";
 
 void main() {
   querySelector("#overflow").onChange.listen(getStackQuestion);
-  querySelector("#btn-stack").onClick.listen(getStackQuestion);
   relatedQuestion = querySelector("#related-questions");
   processingSpan = querySelector("#processing");
 }
@@ -24,9 +23,13 @@ void main() {
 
 
 void getStackQuestion(Event e) {
+
+  //get the question from the input box
   var question = (e.target as InputElement).value;
+  //show the loading widget
   querySelector("#processing")
     ..text = "Processing.....";
+  //set the stackoverflow api ur to point to the question
   var url = "${stackOverflowUrl}&q=${question}&site=stackoverflow&key=${stackApiKey}";
   var xhr = new HttpRequest();
   xhr
@@ -63,8 +66,6 @@ void showData(HttpRequest xhr) {
             ..classes.add("mdl-list__item")
       );
     }
-
-
 
   } else {
     relatedQuestion.children.add(
@@ -108,12 +109,3 @@ void loadPieChart() {
 }
 
 
-class StackOverflowApi {
-
-  List<String> _tags;
-  Map _owner;
-  bool _isAnswered;
-  num _viewCount;
-  String _title;
-
-}
