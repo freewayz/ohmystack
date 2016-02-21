@@ -10,10 +10,11 @@ import 'dart:convert' show JSON;
 import 'question.dart';
 
 DivElement relatedQuestion;
-var processingSpan;
+DivElement processingSpan;
 var stackOverflowUrl = "https://api.stackexchange.com/2.2//search/advanced?order=desc&sort=activity&q";
 var stackApiKey = "4ylwye8J)J7fRHZCsDvD3Q((";
 List<Question> _listOfResult;
+LinkElement viewStackChart;
 
 InputElement stackTextBox;
 
@@ -22,6 +23,8 @@ void main() {
   querySelector("#overflow").onChange.listen(getStackQuestion);
   relatedQuestion = querySelector("#results");
   processingSpan = querySelector("#processing");
+  processingSpan..style.visibility = 'hidden';
+  loadPieChart();
 }
 
 
@@ -31,14 +34,14 @@ void getStackQuestion(Event e) {
   //get the question from the input box
   var question = (e.target as InputElement).value;
   //show the loading widget
-  querySelector("#processing")
-    ..text = "Looking up stackoverflow.....";
   //set the stack-overflow api ur to point to the question
   var url = "${stackOverflowUrl}&q=${question}&site=stackoverflow&key=${stackApiKey}";
   var xhr = new HttpRequest();
   xhr
     ..open('GET', url)
+    ..onProgress.listen((_) => processingSpan..style.visibility = 'visible')
     ..onLoadEnd.listen((e) {
+      processingSpan..style.visibility = 'hidden';
       showData(xhr);
     })
     ..send('');
@@ -93,18 +96,16 @@ void loadPieChart() {
   GChart.PieChart.load().then((_) {
     var data = GChart.arrayToDataTable(
         [
-          ['Task', 'Hours per Day'],
-          ['Work', 11],
-          ['Eat', 2],
-          ['Commute', 2],
-          ['Watch TV', 2],
-          ['Sleep', 7]
+          ['Data', 'Value'],
+          ['Answer Strength', 120],
+          ['View Count', 200],
+
         ]
     );
 
-    var options = {'title' : 'My Daily Activities'};
+    var options = {'title' : 'Stack Trace Velocity'};
 
-    var chart = new GChart.PieChart(document.getElementById("piechart"));
+    var chart = new GChart.PieChart(document.getElementById("stack-chart"));
     chart.draw(data, options);
   });
 }
@@ -124,15 +125,32 @@ DivElement createCardElement(String title, String questionLink) {
   LinkElement viewAnswers =
   new LinkElement()
     ..classes.addAll(cardLink)
-    ..text = "View Answer"
+    ..text = "View Answers"
     ..href = questionLink;
+
+
+
+  viewStackChart =
+  new LinkElement()
+    ..classes.addAll(cardLink)
+    ..text = "View Chart"
+    ..onClick.listen(showStackChart)
+  ;
 
   cardHolder.children.add(cardText);
   cardHolder.children.add(
-      new DivElement()..classes.addAll(["mdl-card__actions", "mdl-card--border"])..children.add(viewAnswers)
+      new DivElement()..classes.addAll(["mdl-card__actions", "mdl-card--border"])..children.addAll(
+          [viewAnswers, viewStackChart]
+      )
   );
   return cardHolder;
 
+}
+
+
+void showStackChart(Event btnEvent){
+
+  print("Viewing stack chart with question id of");
 }
 
 

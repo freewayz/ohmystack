@@ -16,11 +16,20 @@ html, body {
 .stack-card-wide.mdl-card {
     width: 512px;
 }
-.stack-card-wide > .mdl-card__title {
-    color: #fff;
-    height: 176px;
-    /*background: url('../assets/demos/welcome_card.jpg') center / cover;*/
+/*.stack-card-wide > .mdl-card__title {*/
+    /*color: #fff;*/
+    /*height: 176px;*/
+    /*!*background: url('../assets/demos/welcome_card.jpg') center / cover;*!*/
+/*}*/
+/*.stack-card-wide > .mdl-card__menu {*/
+    /*color: #fff;*/
+/*}*/
+
+
+.content-grid {
+    max-width: 960px;
 }
-.stack-card-wide > .mdl-card__menu {
-    color: #fff;
+
+#processing {
+    width: 100%;
 }

@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="scaffolded-by" content="https://github.com/google/stagehand">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.cyan-blue.min.css" />
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.cyan-blue.min.css"/>
     <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <link rel="stylesheet" href="style.css">
@@ -26,7 +26,8 @@
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
             <div class="mdl-textfield mdl-js-textfield" style="width: 100%">
-                <input class="mdl-textfield__input"  type="text" name="stack-trace" id="overflow" placeholder="Drop your stack trace here">
+                <input class="mdl-textfield__input" type="text" name="stack-trace" id="overflow"
+                       placeholder="Drop your stack trace here">
 
             </div>
         </div>
@@ -34,24 +35,26 @@
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Stack Graph</span>
         <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="">Chart</a>
             <a class="mdl-navigation__link" href="">Tags</a>
-            <a class="mdl-navigation__link" href="">Useful Links</a>
         </nav>
     </div>
     <main class="mdl-layout__content">
         <div class="page-content">
-            <div>
-                <span id="processing"> Processing</span>
-                <br>
-                <!--<ul id="related-questions" class="demo-list-item mdl-item"></ul>-->
-                <!--<div id="piechart" style="width: 900px; height: 500px;"></div>-->
+            <div id="processing" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+            <!--<span id="processing"> Processing</span>-->
+            <br>
+            <div class="content-grid mdl-grid">
+                <div class="mdl-cell mdl-cell--7-col">
+                    <div id="results">
+
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--5-col">
+                    <div id="stack-chart" style="width: 600px; height: 300px;"></div>
+                </div>
+
             </div>
 
-            <div id="results">
-
-
-            </div>
         </div>
     </main>
 </div>
