@@ -19,6 +19,8 @@ class Question {
 
   String getQuestionId() => _questionId;
 
+  num getViewCount() => _viewCount;
+
 
   Question(String jsonString) {
     Map jsonMapString = JSON.decode(jsonString);
@@ -27,6 +29,7 @@ class Question {
     _title = jsonMapString['title'];
     _questionId = jsonMapString['question_id"'];
     _questionAnswerUrl = jsonMapString['link'];
+    _viewCount = jsonMapString['view_count'];
   }
 
 }

@@ -24,7 +24,6 @@ void main() {
   relatedQuestion = querySelector("#results");
   processingSpan = querySelector("#processing");
   processingSpan..style.visibility = 'hidden';
-  loadPieChart();
 }
 
 
@@ -50,7 +49,6 @@ void getStackQuestion(Event e) {
 
 void showData(HttpRequest xhr) {
   if (xhr.status == 200) {
-
     var data = xhr.responseText;
     Map matchedQuestions = JSON.decode(data);
     Iterable jsonItems = matchedQuestions.values;
@@ -64,10 +62,10 @@ void showData(HttpRequest xhr) {
         answeredQuestion.add(listOfItems[i]);
       }
     }
-    _listOfResult  = new List();
+    _listOfResult = new List();
     for (var j = 0; j < answeredQuestion.length; ++j) {
       print(answeredQuestion[j]);
-      _listOfResult.add( new Question(JSON.encode(answeredQuestion[j])));
+      _listOfResult.add(new Question(JSON.encode(answeredQuestion[j])));
     }
 
     setStackChartResult(_listOfResult);
@@ -81,7 +79,8 @@ void showData(HttpRequest xhr) {
 
 
 void setStackChartResult(List<Question> questionResult) {
-  questionResult.forEach((question) => relatedQuestion.children.add(createCardElement(question.getTitle(), question.getQuestionAnswerUrl())) );
+  questionResult.forEach((question) => relatedQuestion.children.add(
+      createCardElement(question)));
 }
 
 void setValueForChart(Event event) {
@@ -92,7 +91,7 @@ String getStackTrace(String _stackTrace) {
 }
 
 
-void loadPieChart() {
+void loadPieChart(num answers, num viewCount) {
   GChart.PieChart.load().then((_) {
     var data = GChart.arrayToDataTable(
         [
@@ -111,46 +110,61 @@ void loadPieChart() {
 }
 
 
-DivElement createCardElement(String title, String questionLink) {
-  var  cardHolderClass = ["stack-card-wide","mdl-card","mdl-shadow--2dp"];
+DivElement createCardElement(Question qu) {
+  var cardHolderClass = ["stack-card-wide", "mdl-card", "mdl-shadow--2dp"];
   var cardTextClass = "mdl-card__supporting-text";
-  var cardLink = ["mdl-button", "mdl-button--colored",  "mdl-js-button",  "mdl-js-ripple-effect"];
+  var cardLink = [
+    "mdl-button", "mdl-button--colored", "mdl-js-button", "mdl-js-ripple-effect"
+  ];
   DivElement cardHolder = new DivElement()
     ..classes.addAll(cardHolderClass)
 
   ;
   DivElement cardText = new DivElement()
-    ..classes.add(cardTextClass)..innerHtml = title;
+    ..classes.add(cardTextClass)
+    ..innerHtml = qu.getTitle();
 
   LinkElement viewAnswers =
   new LinkElement()
     ..classes.addAll(cardLink)
     ..text = "View Answers"
-    ..href = questionLink;
-
+    ..href = qu.getQuestionAnswerUrl();
 
 
   viewStackChart =
   new LinkElement()
     ..classes.addAll(cardLink)
     ..text = "View Chart"
-    ..onClick.listen(showStackChart)
+    ..onClick.listen((e) {
+      getQuestionAnswers(qu.getQuestionId(), qu.getViewCount());
+    })
   ;
 
   cardHolder.children.add(cardText);
   cardHolder.children.add(
-      new DivElement()..classes.addAll(["mdl-card__actions", "mdl-card--border"])..children.addAll(
-          [viewAnswers, viewStackChart]
-      )
+      new DivElement()
+        ..classes.addAll(["mdl-card__actions", "mdl-card--border"])
+        ..children.addAll(
+            [viewAnswers, viewStackChart]
+        )
   );
   return cardHolder;
-
 }
 
+void getQuestionAnswers(String questionId, num viewCount) {
+  String stackOverflowQuestionUrl = "https://api.stackexchange.com/2.2/answers/${questionId}?order=desc&sort=activity&site=stackoverflow&key=${stackApiKey}";
 
-void showStackChart(Event btnEvent){
-
-  print("Viewing stack chart with question id of");
+  HttpRequest.getString(
+      stackOverflowQuestionUrl,
+      onProgress: (_) => processingSpan..style.visibility = 'visible')
+      .then((response)
+  {
+    print("Response is " + response);
+    Map matchedAnswers = JSON.decode(response);
+    List<String> allAnswers = matchedAnswers['items'];
+    loadPieChart(allAnswers.length, viewCount);
+  }).catchError((_) => print("Error getting answers"));
 }
+
 
 
