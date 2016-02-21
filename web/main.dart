@@ -15,6 +15,8 @@ var stackOverflowUrl = "https://api.stackexchange.com/2.2//search/advanced?order
 var stackApiKey = "4ylwye8J)J7fRHZCsDvD3Q((";
 List<Question> _listOfResult;
 
+InputElement stackTextBox;
+
 
 void main() {
   querySelector("#overflow").onChange.listen(getStackQuestion);
@@ -24,12 +26,14 @@ void main() {
 
 
 void getStackQuestion(Event e) {
+  //empty the relatedQuestions
+  relatedQuestion.children.clear();
   //get the question from the input box
   var question = (e.target as InputElement).value;
   //show the loading widget
   querySelector("#processing")
-    ..text = "Processing.....";
-  //set the stackoverflow api ur to point to the question
+    ..text = "Looking up stackoverflow.....";
+  //set the stack-overflow api ur to point to the question
   var url = "${stackOverflowUrl}&q=${question}&site=stackoverflow&key=${stackApiKey}";
   var xhr = new HttpRequest();
   xhr
@@ -59,14 +63,8 @@ void showData(HttpRequest xhr) {
     }
     _listOfResult  = new List();
     for (var j = 0; j < answeredQuestion.length; ++j) {
-
+      print(answeredQuestion[j]);
       _listOfResult.add( new Question(JSON.encode(answeredQuestion[j])));
-//      relatedQuestion.children.add(
-//          createCardElement(answeredQuestion[j])
-//          new LIElement()
-//            ..text = answeredQuestion[j]
-//            ..classes.add("mdl-list__item")
-//      );
     }
 
     setStackChartResult(_listOfResult);
