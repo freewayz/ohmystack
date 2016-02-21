@@ -7,23 +7,23 @@ import 'package:google_charts/google_charts.dart' as GChart;
 import 'package:js/js.dart' as js;
 import 'dart:async' show Future;
 import 'dart:convert' show JSON;
+import 'question.dart';
 
-
-var relatedQuestion;
+DivElement relatedQuestion;
 var processingSpan;
 var stackOverflowUrl = "https://api.stackexchange.com/2.2//search/advanced?order=desc&sort=activity&q";
 var stackApiKey = "4ylwye8J)J7fRHZCsDvD3Q((";
+List<Question> _listOfResult;
+
 
 void main() {
   querySelector("#overflow").onChange.listen(getStackQuestion);
-  relatedQuestion = querySelector("#related-questions");
+  relatedQuestion = querySelector("#results");
   processingSpan = querySelector("#processing");
 }
 
 
-
 void getStackQuestion(Event e) {
-
   //get the question from the input box
   var question = (e.target as InputElement).value;
   //show the loading widget
@@ -43,30 +43,33 @@ void getStackQuestion(Event e) {
 
 void showData(HttpRequest xhr) {
   if (xhr.status == 200) {
+
     var data = xhr.responseText;
     Map matchedQuestions = JSON.decode(data);
     Iterable jsonItems = matchedQuestions.values;
     List listOfItems = jsonItems.first;
     List<String> answeredQuestion = new List();
 
-    Map itemQuestion  = null;
-
+    Map itemQuestion = null;
     for (int i = 0; i < listOfItems.length; ++i) {
       itemQuestion = listOfItems[i];
-
-      if(itemQuestion['is_answered']){
+      if (itemQuestion['is_answered']) {
         answeredQuestion.add(listOfItems[i]);
       }
     }
+    _listOfResult  = new List();
+    for (var j = 0; j < answeredQuestion.length; ++j) {
 
-    for(var j = 0; j < answeredQuestion.length; ++j){
-      relatedQuestion.children.add(
-          new LIElement()
-            ..text = answeredQuestion[j]
-            ..classes.add("mdl-list__item")
-      );
+      _listOfResult.add( new Question(JSON.encode(answeredQuestion[j])));
+//      relatedQuestion.children.add(
+//          createCardElement(answeredQuestion[j])
+//          new LIElement()
+//            ..text = answeredQuestion[j]
+//            ..classes.add("mdl-list__item")
+//      );
     }
 
+    setStackChartResult(_listOfResult);
   } else {
     relatedQuestion.children.add(
         new LIElement()
@@ -76,14 +79,14 @@ void showData(HttpRequest xhr) {
 }
 
 
-void setStackChartResult(List values){
-
+void setStackChartResult(List<Question> questionResult) {
+  questionResult.forEach((question) => relatedQuestion.children.add(createCardElement(question.getTitle(), question.getQuestionAnswerUrl())) );
 }
 
 void setValueForChart(Event event) {
 }
 
-String getStackTrace(String _stackTrace){
+String getStackTrace(String _stackTrace) {
   return _stackTrace;
 }
 
@@ -106,6 +109,32 @@ void loadPieChart() {
     var chart = new GChart.PieChart(document.getElementById("piechart"));
     chart.draw(data, options);
   });
+}
+
+
+DivElement createCardElement(String title, String questionLink) {
+  var  cardHolderClass = ["stack-card-wide","mdl-card","mdl-shadow--2dp"];
+  var cardTextClass = "mdl-card__supporting-text";
+  var cardLink = ["mdl-button", "mdl-button--colored",  "mdl-js-button",  "mdl-js-ripple-effect"];
+  DivElement cardHolder = new DivElement()
+    ..classes.addAll(cardHolderClass)
+
+  ;
+  DivElement cardText = new DivElement()
+    ..classes.add(cardTextClass)..innerHtml = title;
+
+  LinkElement viewAnswers =
+  new LinkElement()
+    ..classes.addAll(cardLink)
+    ..text = "View Answer"
+    ..href = questionLink;
+
+  cardHolder.children.add(cardText);
+  cardHolder.children.add(
+      new DivElement()..classes.addAll(["mdl-card__actions", "mdl-card--border"])..children.add(viewAnswers)
+  );
+  return cardHolder;
+
 }
 
 
