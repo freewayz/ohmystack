@@ -31,7 +31,7 @@ class OhMyStackAPI{
     
     @ApiMethod(path:"koding")
     KodingResponse testKodingUser(String whoami){
-        return KodingResponse
+        return new KodingResponse()..message = "Hello Geek ${whoami} this is koding hackthon";
         
     }
 }
