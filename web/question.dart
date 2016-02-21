@@ -27,7 +27,7 @@ class Question {
     _tags = jsonMapString['tags'];
     _owner = jsonMapString['owner'];
     _title = jsonMapString['title'];
-    _questionId = jsonMapString['question_id"'];
+    _questionId = jsonMapString['question_id'];
     _questionAnswerUrl = jsonMapString['link'];
     _viewCount = jsonMapString['view_count'];
   }
