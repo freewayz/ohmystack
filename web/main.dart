@@ -96,8 +96,8 @@ void loadPieChart(num answers, num viewCount) {
     var data = GChart.arrayToDataTable(
         [
           ['Data', 'Value'],
-          ['Answer Strength', 120],
-          ['View Count', 200],
+          ['Answer Strength', answers],
+          ['View Count', viewCount],
 
         ]
     );
